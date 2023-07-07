@@ -1,65 +1,60 @@
-# Scrapping/Scrapper_
 
 
-<!--[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)-->
+# File Upload System
 
-This Reporsitory will content the different types of scrapper using the BeaultifulSoup , Request , Selenium and many more libraries of the python.
-
-- Easy to understand
-- Compact Code
-- ✨Magic ✨
+The File Upload Service is a RESTful API built with Django and Django Rest Framework. It provides token-based authentication for secure file uploads, storage, and retrieval.
 
 ## Features
 
-- Just download the scrapper 
-- Install the requirements
-- Run the scrapper
-- Whoo!! Got the data in the CSV format (You can change the format also)
-- Proper commenting of code
+- Token authentication for secure API access
+- File upload functionality with various file types supported
+- APIs for listing and downloading files
+- Secure and private storage for uploaded files
 
-Python, one of the most widely used data mining tools – from cleaning and data organization to applying machine learning algorithms. Python is a very Popular language in the field of the data mining and scrapping is the starting of this field
-
-
-
-## Tech
-
-This which is neccessary for the scrapper:-
-
-- [Selenium] - Get the dynamic pages
-- [Vs code] - awesome  Code editor
-- [BeaultifullSoup] - Make the tree of the HTML data.
-- [Firefox] - Best Browser for the debugging and inspect 
-- [Python] - Easy to get the data
-
-
+Requirements:
+Django==3.2.8
+djangorestframework==3.12.4
+django-cors-headers==3.8.0
 
 ## Installation
 
-Scrapper's requires [Python](https://www.python.org) 10+ version to run.
+1. Extract the Zip file:
 
-Install the Requirements and start the Running.
-```sh
-Pip install requests
-Pip install Pandas
-Pip install selenium
-Pip install beautifulsoup4
-```
+2. Run database migrations:
+   ```
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+3: Create the superuser:
+   ```
+    python manage.py createsuperuser
+   ```
 
+6. Start the development server:
+   ```
+   python manage.py runserver
+   ```
 
+7. Access the API at `http://localhost:8000/api/`
 
+## API Documentation
 
-## License
+The API provides the following endpoints:
 
-GPL-3.0 license
+- `POST /api/token/`: Obtain an authentication token by providing valid credentials.
+- `POST /api/upload/`: Upload a file by providing the file data. Requires token authentication.
+- `GET /api/files/`: List all files uploaded by the authenticated user. Requires token authentication.
+- `GET /api/files/<file_id>/`: Download a specific file by file ID. Requires token authentication.
 
-**Free Software, Hell Yeah!**
+For detailed API documentation and examples, refer to the API documentation page at `http://localhost:8000/api/docs/` after starting the server.
 
-<div align="center">
-<a href="https://www.linkedin.com/in/saurabh-jain-dc/" target="_blank">
-<img src=https://img.shields.io/badge/linkedin-%2300acee.svg?color=405DE6&style=for-the-badge&logo=linkedin&logoColor=white alt=linkedin style="margin-bottom: 5px;" />
-</a>
-<a href="https://www.instagram.com/saurabhj1/?hl=en" target="_blank">
-<img src=https://img.shields.io/badge/instagram-%ff5851db.svg?color=C13584&style=for-the-badge&logo=instagram&logoColor=white alt=instagram style="margin-bottom: 5px;" />
-  <br>
-🖤DaRk HeArt🖤
-</div>
+## Configuration
+
+The following configuration options are available:
+
+- Token authentication: Token authentication is enabled for secure API access. Tokens can be obtained by authenticating with valid credentials using the `/api/token/` endpoint.
+- File storage: By default, the files are stored locally in the `media/uploads/` directory. You can configure a different storage backend, such as Amazon S3, by modifying the project settings.
+
+## Contact
+
+For any inquiries or questions, please contact jsourabh861@gmail.com.
